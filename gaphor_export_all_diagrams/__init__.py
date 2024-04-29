@@ -1,3 +1,21 @@
+#   Copyright 2024 KION Group AG
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+#   This plugin uses code from the upstream Gaphor project, licensed under the
+#   Apache License, Version 2.0, Copyright The Gaphor Development Team
+
+
 import logging
 from pathlib import Path
 
@@ -25,6 +43,7 @@ class ExportAllPlugin(Service, ActionProvider):
     def shutdown(self):
         pass
 
+    # Adapted from the upstream DiagramExport plugin
     def export_pngs_handler(self, path):
         log.info(f"Outputting diagrams to {path}")
         for diagram in self.factory.select(Diagram):
